@@ -50,6 +50,48 @@ This is an experimental project meant to explore SwiftUI and SwiftData capabilit
 - macOS 14.0 or later
 - Xcode 15.0 or later
 
+## Building and Testing
+
+### Quick Start
+To build and test the application, you can use the provided script:
+
+```bash
+./build-and-test.sh
+```
+
+### Manual Building
+To build the application manually:
+
+```bash
+xcodebuild clean build \
+  -project JobTwister.xcodeproj \
+  -scheme JobTwister \
+  -destination 'platform=macOS' \
+  -configuration Release
+```
+
+### Running Tests
+To run the unit tests:
+
+```bash
+xcodebuild test \
+  -project JobTwister.xcodeproj \
+  -scheme JobTwister \
+  -destination 'platform=macOS' \
+  -configuration Debug
+```
+
+### Continuous Integration
+The project includes GitHub Actions workflow for automated building and testing on every push and pull request. See `.github/workflows/build-and-test.yml` for details.
+
+### Test Coverage
+The project includes comprehensive tests for:
+- Job model creation and validation
+- Interview model functionality
+- Data migration from legacy interview format
+- CSV import/export utilities
+- Basic UI functionality
+
 ### Development
 The project uses:
 - SwiftUI for the interface
